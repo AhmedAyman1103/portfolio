@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ahmed Ayman Ahmed El-Laithy - Cybersecurity Student & Penetration Testing Enthusiast">
+    <title>Ahmed Ayman - Cybersecurity Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #e8e8e8; /* Slightly warmer off-white for better readability */
+            background-color: #121212; /* Softer dark gray background, less stark than pure black */
+        }
+        header {
+            background: linear-gradient(135deg, #1e1e1e, #0f1419); /* Muted gradient, less contrasty */
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 3px solid #4fc3f7; /* Softer blue accent instead of bright green for eye comfort */
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid #4fc3f7; /* Matching softer blue border */
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #4fc3f7; /* Softer blue for headings */
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #b0b0b0; /* Muted gray for subtitles, easier on eyes */
+        }
+        .contact-info {
+            margin-bottom: 1rem;
+        }
+        .contact-info a {
+            color: #4fc3f7; /* Softer blue links */
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover {
+            color: #81d4fa; /* Lighter blue on hover, subtle change */
+        }
+        nav {
+            background: #1e1e1e; /* Slightly lighter dark for nav */
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav li {
+            margin: 0 1rem;
+        }
+        nav a {
+            color: #e8e8e8; /* Warmer text */
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+        nav a:hover, nav a.active {
+            color: #4fc3f7; /* Softer blue on hover/active */
+        }
+        section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #4fc3f7; /* Consistent softer blue */
+            text-align: center;
+            border-bottom: 2px solid #4fc3f7;
+            padding-bottom: 0.5rem;
+        }
+        .summary {
+            text-align: center;
+            font-size: 1.1rem;
+            background: #1e1e1e; /* Softer card background */
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        .skills-grid, .projects-grid, .soft-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .skill-card, .project-card, .soft-skill-card {
+            background: #1e1e1e; /* Consistent softer backgrounds */
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #4fc3f7; /* Softer blue accent */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .skill-card:hover, .project-card:hover, .soft-skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(79, 195, 247, 0.2); /* Muted blue shadow, lower opacity for subtlety */
+        }
+        .project-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+        .tech-tags {
+            margin-top: 1rem;
+            display:  flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .tech-tag {
+            background: #4fc3f7; /* Softer blue tags */
+            color: #000;
+            padding: 0.25rem 0.5rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        ul li::before {
+            content: "▸";
+            color: #4fc3f7; /* Softer blue bullets */
+            position: absolute;
+            left: 0;
+        }
+        .cert-card, .activity-card {
+            background: #1e1e1e;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border: 1px solid #333; /* Keep subtle border */
+        }
+        .academic-highlights {
+            background: #1e1e1e;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+        form {
+            display: grid;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        input, textarea {
+            padding: 0.75rem;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background: #1e1e1e; /* Matching softer input backgrounds */
+            color: #e8e8e8;
+        }
+        button {
+            background: #4fc3f7; /* Softer blue button */
+            color: #000;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #29b6f6; /* Slightly darker blue on hover for smooth transition */
+        }
+        footer {
+            background: #1e1e1e;
+            text-align: center;
+            padding: 1rem;
+            color: #b0b0b0; /* Muted footer text */
+            border-top: 2px solid #4fc3f7;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            section {
+                padding: 2rem 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="IMG_20230904_194547_315.jpg" alt="Ahmed Ayman Profile Photo" class="profile-img"> <!-- Replace with your photo -->
+        <h1>Ahmed Ayman Ahmed El-Laithy</h1>
+        <p class="subtitle">Cybersecurity Enthusiast | Penetration Testing Specialist</p>
+        <div class="contact-info">
+            <a href="tel:01205460732"><i class="fas fa-phone"></i> 01205460732</a> |
+            <a href="mailto:ahmed.ayman1103@email.com"><i class="fas fa-envelope"></i> ahmed.ayman1103@email.com</a> |
+            <a href="https://www.linkedin.com/in/ahmed-ayman-72b7b1329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> |
+            <a href="https://github.com/AhmedAyman1103" target="_blank"><i class="fab fa-github"></i> GitHub</a> <!-- Add your GitHub -->
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#summary" onclick="scrollToSection('summary')">Home</a></li>
+            <li><a href="#education" onclick="scrollToSection('education')">Education</a></li>
+            <li><a href="#experience" onclick="scrollToSection('experience')">Experience</a></li>
+            <li><a href="#skills" onclick="scrollToSection('skills')">Skills</a></li>
+            <li><a href="#soft-skills" onclick="scrollToSection('soft-skills')">Soft Skills</a></li> <!-- New section inspired by Nawal -->
+            <li><a href="#projects" onclick="scrollToSection('projects')">Projects</a></li>
+            <li><a href="#certifications" onclick="scrollToSection('certifications')">Certifications</a></li>
+            <li><a href="#activities" onclick="scrollToSection('activities')">Activities</a></li>
+            <li><a href="#contact" onclick="scrollToSection('contact')">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="summary" class="summary">
+        <p>Motivated Computer Science student specializing in Cybersecurity and Penetration Testing, with hands-on experience in ethical hacking labs and strong problem-solving skills. Seeking an internship or entry-level role to apply my technical knowledge, enhance security systems, and grow within a professional cybersecurity environment. Passionate about identifying vulnerabilities and contributing to secure digital infrastructures.</p>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="cert-card">
+            <h3>B.Sc. in Computer Science – Cybersecurity Track</h3>
+            <p><strong>Faculty of Computers and Artificial Intelligence, Sadat City University</strong><br>
+            Sadat City, Egypt | Expected Graduation: 2026 (Started: 2022)</p>
+            <p><strong>Relevant Coursework:</strong> Penetration Testing, Ethical Hacking, Network Security, Operating Systems, Cryptography</p>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        <div class="cert-card">
+            <h3>Cybersecurity Intern – Freelance / Self-Learning Projects</h3>
+            <p>2024 – Present</p>
+            <ul>
+                <li>Conducted penetration tests in simulated environments using tools like Metasploit, Nmap, and Burp Suite to identify and exploit vulnerabilities.</li>
+                <li>Performed vulnerability scanning and exploitation in platforms such as TryHackMe and Hack The Box, simulating real-world attack scenarios.</li>
+                <li>Created detailed technical reports outlining vulnerabilities, exploitation steps, and remediation recommendations, emphasizing ethical practices and compliance with standards like OWASP.</li>
+                <li>Exploited 20+ vulnerabilities across 10+ labs.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Programming Languages <i class="fas fa-code"></i></h3>
+                <ul>
+                    <li>Python</li>
+                    <li>C#</li>
+                    <li>HTML, CSS, JavaScript</li>
+                    <li>Bash</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Cybersecurity Tools <i class="fas fa-shield-alt"></i></h3>
+                <ul>
+                    <li>Burp Suite</li>
+                    <li>Wireshark</li>
+                    <li>Nmap</li>
+                    <li>Metasploit</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Platforms & OS <i class="fas fa-laptop"></i></h3>
+                <ul>
+                    <li>Kali Linux</li>
+                    <li>Windows</li>
+                    <li>Git, GitHub</li>
+                    <li>TryHackMe, Hack The Box</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="soft-skills">
+        <h2>Soft Skills</h2> <!-- New section from Nawal's inspiration -->
+        <div class="soft-skills-grid">
+            <div class="soft-skill-card">
+                <h3>Problem-Solving</h3>
+                <p>Strong analytical thinking to uncover and resolve security vulnerabilities.</p>
+            </div>
+            <div class="soft-skill-card">
+                <h3>Teamwork & Communication</h3>
+                <p>Collaborate effectively in cybersecurity clubs and report findings clearly.</p>
+            </div>
+            <div class="soft-skill-card">
+                <h3>Adaptability</h3>
+                <p>Quick learner in dynamic environments like ethical hacking workshops.</p>
+            </div>
+            <div class="soft-skill-card">
+                <h3>Documentation</h3>
+                <p>Create detailed reports for penetration testing and project outcomes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>School Management System (C#)</h3>
+                <p>Developed a desktop application using OOP principles to manage student and teacher data. Implemented CRUD operations, user authentication, and data encryption.</p>
+                <p>Outcome: Streamlined tasks, reducing manual entry by 50%.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">CRUD</span>
+                    <span class="tech-tag">OOP</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Personal Portfolio Website (HTML, CSS, JS)</h3>
+                <p>Built a responsive website to showcase projects and skills, with security features like input validation to prevent XSS.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Bootstrap</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Cybersecurity Labs – TryHackMe & Hack The Box</h3>
+                <p>Completed Buffer Overflow room: Exploited vulnerabilities, performed privilege escalation on Linux/Windows. Documented in pentest reports.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">TryHackMe</span>
+                    <span class="tech-tag">Hack The Box</span>
+                    <span class="tech-tag">Buffer Overflow</span>
+                    <span class="tech-tag">Privilege Escalation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add missing sections if needed, e.g., Certifications, Activities, Contact -->
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <div class="cert-card">
+            <!-- Add your certifications here -->
+            <p>No certifications listed yet. Stay tuned!</p>
+        </div>
+    </section>
+
+    <section id="activities">
+        <h2>Activities</h2>
+        <div class="activity-card">
+            <!-- Add your activities here -->
+            <p>Active member of university cybersecurity club. Participated in ethical hacking workshops.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Ahmed Ayman Ahmed El-Laithy. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
