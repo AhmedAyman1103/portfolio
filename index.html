@@ -1,399 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ahmed Ayman Ahmed El-Laithy - Cybersecurity Student & Penetration Testing Enthusiast">
-    <title>Ahmed Ayman - Cybersecurity Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FintechPay Landing Page</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11d4b4",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#10221f",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#19332f",
+                        "border-light": "#e5e7eb",
+                        "border-dark": "#234842",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
         }
+    </script>
+<style>
         body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #e8e8e8; /* Slightly warmer off-white for better readability */
-            background-color: #121212; /* Softer dark gray background, less stark than pure black */
-        }
-        header {
-            background: linear-gradient(135deg, #1e1e1e, #0f1419); /* Muted gradient, less contrasty */
-            padding: 2rem 0;
-            text-align: center;
-            border-bottom: 3px solid #4fc3f7; /* Softer blue accent instead of bright green for eye comfort */
-        }
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-            border: 3px solid #4fc3f7; /* Matching softer blue border */
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: #4fc3f7; /* Softer blue for headings */
-        }
-        .subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #b0b0b0; /* Muted gray for subtitles, easier on eyes */
-        }
-        .contact-info {
-            margin-bottom: 1rem;
-        }
-        .contact-info a {
-            color: #4fc3f7; /* Softer blue links */
-            text-decoration: none;
-            margin: 0 1rem;
-            transition: color 0.3s;
-        }
-        .contact-info a:hover {
-            color: #81d4fa; /* Lighter blue on hover, subtle change */
-        }
-        nav {
-            background: #1e1e1e; /* Slightly lighter dark for nav */
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        nav li {
-            margin: 0 1rem;
-        }
-        nav a {
-            color: #e8e8e8; /* Warmer text */
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.3s;
-        }
-        nav a:hover, nav a.active {
-            color: #4fc3f7; /* Softer blue on hover/active */
-        }
-        section {
-            padding: 3rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #4fc3f7; /* Consistent softer blue */
-            text-align: center;
-            border-bottom: 2px solid #4fc3f7;
-            padding-bottom: 0.5rem;
-        }
-        .summary {
-            text-align: center;
-            font-size: 1.1rem;
-            background: #1e1e1e; /* Softer card background */
-            padding: 2rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-        }
-        .skills-grid, .projects-grid, .soft-skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        .skill-card, .project-card, .soft-skill-card {
-            background: #1e1e1e; /* Consistent softer backgrounds */
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid #4fc3f7; /* Softer blue accent */
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .skill-card:hover, .project-card:hover, .soft-skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(79, 195, 247, 0.2); /* Muted blue shadow, lower opacity for subtlety */
-        }
-        .project-card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-        }
-        .tech-tags {
-            margin-top: 1rem;
-            display:  flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .tech-tag {
-            background: #4fc3f7; /* Softer blue tags */
-            color: #000;
-            padding: 0.25rem 0.5rem;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            font-weight: 700;
-        }
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        ul li {
-            margin-bottom: 0.5rem;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-        ul li::before {
-            content: "▸";
-            color: #4fc3f7; /* Softer blue bullets */
-            position: absolute;
-            left: 0;
-        }
-        .cert-card, .activity-card {
-            background: #1e1e1e;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 5px;
-            border: 1px solid #333; /* Keep subtle border */
-        }
-        .academic-highlights {
-            background: #1e1e1e;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-top: 1rem;
-        }
-        form {
-            display: grid;
-            gap: 1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        input, textarea {
-            padding: 0.75rem;
-            border: 1px solid #333;
-            border-radius: 5px;
-            background: #1e1e1e; /* Matching softer input backgrounds */
-            color: #e8e8e8;
-        }
-        button {
-            background: #4fc3f7; /* Softer blue button */
-            color: #000;
-            padding: 0.75rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: background 0.3s;
-        }
-        button:hover {
-            background: #29b6f6; /* Slightly darker blue on hover for smooth transition */
-        }
-        footer {
-            background: #1e1e1e;
-            text-align: center;
-            padding: 1rem;
-            color: #b0b0b0; /* Muted footer text */
-            border-top: 2px solid #4fc3f7;
-        }
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-            }
-            section {
-                padding: 2rem 1rem;
-            }
-            h1 {
-                font-size: 2rem;
-            }
+            font-family: 'Inter', sans-serif;
         }
     </style>
 </head>
-<body>
-    <header>
-        <img src="IMG_20230904_194547_315.jpg" alt="Ahmed Ayman Profile Photo" class="profile-img"> <!-- Replace with your photo -->
-        <h1>Ahmed Ayman Ahmed El-Laithy</h1>
-        <p class="subtitle">Cybersecurity Enthusiast | Penetration Testing Specialist</p>
-        <div class="contact-info">
-            <a href="tel:01205460732"><i class="fas fa-phone"></i> 01205460732</a> |
-            <a href="mailto:ahmed.ayman1103@email.com"><i class="fas fa-envelope"></i> ahmed.ayman1103@email.com</a> |
-            <a href="https://www.linkedin.com/in/ahmed-ayman-72b7b1329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> |
-            <a href="https://github.com/AhmedAyman1103" target="_blank"><i class="fab fa-github"></i> GitHub</a> <!-- Add your GitHub -->
-        </div>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#summary" onclick="scrollToSection('summary')">Home</a></li>
-            <li><a href="#education" onclick="scrollToSection('education')">Education</a></li>
-            <li><a href="#experience" onclick="scrollToSection('experience')">Experience</a></li>
-            <li><a href="#skills" onclick="scrollToSection('skills')">Skills</a></li>
-            <li><a href="#soft-skills" onclick="scrollToSection('soft-skills')">Soft Skills</a></li> <!-- New section inspired by Nawal -->
-            <li><a href="#projects" onclick="scrollToSection('projects')">Projects</a></li>
-            <li><a href="#certifications" onclick="scrollToSection('certifications')">Certifications</a></li>
-            <li><a href="#activities" onclick="scrollToSection('activities')">Activities</a></li>
-            <li><a href="#contact" onclick="scrollToSection('contact')">Contact</a></li>
-        </ul>
-    </nav>
-
-    <section id="summary" class="summary">
-        <p>Motivated Computer Science student specializing in Cybersecurity and Penetration Testing, with hands-on experience in ethical hacking labs and strong problem-solving skills. Seeking an internship or entry-level role to apply my technical knowledge, enhance security systems, and grow within a professional cybersecurity environment. Passionate about identifying vulnerabilities and contributing to secure digital infrastructures.</p>
-    </section>
-
-    <section id="education">
-        <h2>Education</h2>
-        <div class="cert-card">
-            <h3>B.Sc. in Computer Science – Cybersecurity Track</h3>
-            <p><strong>Faculty of Computers and Artificial Intelligence, Sadat City University</strong><br>
-            Sadat City, Egypt | Expected Graduation: 2026 (Started: 2022)</p>
-            <p><strong>Relevant Coursework:</strong> Penetration Testing, Ethical Hacking, Network Security, Operating Systems, Cryptography</p>
-        </div>
-    </section>
-
-    <section id="experience">
-        <h2>Professional Experience</h2>
-        <div class="cert-card">
-            <h3>Cybersecurity Intern – Freelance / Self-Learning Projects</h3>
-            <p>2024 – Present</p>
-            <ul>
-                <li>Conducted penetration tests in simulated environments using tools like Metasploit, Nmap, and Burp Suite to identify and exploit vulnerabilities.</li>
-                <li>Performed vulnerability scanning and exploitation in platforms such as TryHackMe and Hack The Box, simulating real-world attack scenarios.</li>
-                <li>Created detailed technical reports outlining vulnerabilities, exploitation steps, and remediation recommendations, emphasizing ethical practices and compliance with standards like OWASP.</li>
-                <li>Exploited 20+ vulnerabilities across 10+ labs.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="skills">
-        <h2>Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>Programming Languages <i class="fas fa-code"></i></h3>
-                <ul>
-                    <li>Python</li>
-                    <li>C#</li>
-                    <li>HTML, CSS, JavaScript</li>
-                    <li>Bash</li>
-                </ul>
-            </div>
-            <div class="skill-card">
-                <h3>Cybersecurity Tools <i class="fas fa-shield-alt"></i></h3>
-                <ul>
-                    <li>Burp Suite</li>
-                    <li>Wireshark</li>
-                    <li>Nmap</li>
-                    <li>Metasploit</li>
-                </ul>
-            </div>
-            <div class="skill-card">
-                <h3>Platforms & OS <i class="fas fa-laptop"></i></h3>
-                <ul>
-                    <li>Kali Linux</li>
-                    <li>Windows</li>
-                    <li>Git, GitHub</li>
-                    <li>TryHackMe, Hack The Box</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="soft-skills">
-        <h2>Soft Skills</h2> <!-- New section from Nawal's inspiration -->
-        <div class="soft-skills-grid">
-            <div class="soft-skill-card">
-                <h3>Problem-Solving</h3>
-                <p>Strong analytical thinking to uncover and resolve security vulnerabilities.</p>
-            </div>
-            <div class="soft-skill-card">
-                <h3>Teamwork & Communication</h3>
-                <p>Collaborate effectively in cybersecurity clubs and report findings clearly.</p>
-            </div>
-            <div class="soft-skill-card">
-                <h3>Adaptability</h3>
-                <p>Quick learner in dynamic environments like ethical hacking workshops.</p>
-            </div>
-            <div class="soft-skill-card">
-                <h3>Documentation</h3>
-                <p>Create detailed reports for penetration testing and project outcomes.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <h3>School Management System (C#)</h3>
-                <p>Developed a desktop application using OOP principles to manage student and teacher data. Implemented CRUD operations, user authentication, and data encryption.</p>
-                <p>Outcome: Streamlined tasks, reducing manual entry by 50%.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">C#</span>
-                    <span class="tech-tag">SQL</span>
-                    <span class="tech-tag">CRUD</span>
-                    <span class="tech-tag">OOP</span>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white transition-colors duration-200">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden font-display">
+<!-- Header -->
+<header class="sticky top-0 z-50 w-full border-b border-border-light dark:border-border-dark bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+<div class="flex items-center gap-4">
+<div class="flex size-8 items-center justify-center rounded bg-primary/20 text-primary dark:text-primary">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight text-slate-900 dark:text-white">FintechPay</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors" href="#">Features</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors" href="#">Security</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-4">
+<a href="login.html"
+   class="flex h-10 min-w-[84px] items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-[#10221f] hover:bg-opacity-90 transition-opacity">
+  Login
+</a>
+<!-- Mobile Menu Button -->
+<button class="md:hidden flex items-center justify-center text-slate-900 dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<!-- Hero Section -->
+<section class="relative flex min-h-[600px] flex-col justify-center overflow-hidden py-20">
+<!-- Background Image & Gradient -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-background-dark/95 via-background-dark/80 to-background-dark/60 z-10"></div>
+<img alt="Abstract blurred fintech dashboard interface with data visualization" class="h-full w-full object-cover object-center opacity-40 dark:opacity-60" data-alt="Abstract blurred fintech dashboard interface with data visualization" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB1XgdFSS7SynPasDQBxk6Sj_JcRGoiHTnCaaXM8cZ3pKtFZiQrwWU1A2m1KCDJ0pzymIm1d32QdqtTnu8QE_mzFNTvm9-JVey2g5Apz8GH91MUK506w3sum4_GIkhqr1aNoKju604naXMTZTfadgPtcUF-8Vk-L8-mpnsRnw5fHJ6TBRdGStdshqjWFbrsAJPwpxDjE1CEnHE8QSMi6_BVh2olwawcwD6nFU6nOnCQADL8Qoj1QPHmPySNpqS6v2yYtjtHnYFdcY"/>
+</div>
+<div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+<div class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm font-medium text-primary backdrop-blur-sm">
+<span class="flex h-2 w-2 rounded-full bg-primary"></span>
+                        New: Instant International Transfers
+                    </div>
+<h1 class="max-w-4xl text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+                        The Future of Secure <br class="hidden md:block"/> <span class="text-primary">Electronic Cheques</span>
+</h1>
+<p class="mt-6 max-w-2xl text-lg text-slate-200 sm:text-xl">
+                        Experience the fastest, safest, and most reliable way to handle electronic payments today. Simplify your workflow with bank-grade security.
+                    </p>
+<div class="mt-10 flex flex-col w-full sm:w-auto gap-4 sm:flex-row">
+<a href="login.html"
+   class="flex h-12 min-w-[160px] items-center justify-center rounded-lg bg-primary px-8 text-base font-bold text-[#10221f] transition-all hover:bg-[#0ebfa1] hover:scale-105">
+  Get Started
+</a>
+<button class="flex h-12 min-w-[160px] cursor-pointer items-center justify-center rounded-lg border border-white/20 bg-white/10 px-8 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/20">
+                            View Demo
+                        </button>
+</div>
+</div>
+</section>
+<!-- Feature Section -->
+<section class="bg-background-light dark:bg-background-dark py-24">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="mb-16 md:text-center">
+<h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+                            How It Works
+                        </h2>
+<p class="mt-4 text-lg text-slate-600 dark:text-slate-400">
+                            Simplify your payment workflow in three easy steps.
+                        </p>
+</div>
+<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+<!-- Step 1 -->
+<div class="group relative overflow-hidden rounded-2xl bg-white dark:bg-surface-dark p-8 shadow-sm transition-all hover:shadow-md border border-border-light dark:border-border-dark">
+<div class="mb-6 inline-flex size-14 items-center justify-center rounded-xl bg-primary/10 text-primary dark:bg-primary/20">
+<span class="material-symbols-outlined text-3xl">edit_document</span>
+</div>
+<h3 class="mb-3 text-xl font-bold text-slate-900 dark:text-white">1. Create</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Generate digital cheques instantly from your dashboard. Customize amounts, payees, and dates effortlessly.
+                            </p>
+<div class="absolute -bottom-2 -right-2 size-24 rounded-full bg-primary/5 dark:bg-primary/10 transition-transform duration-300 group-hover:scale-150"></div>
+</div>
+<!-- Step 2 -->
+<div class="group relative overflow-hidden rounded-2xl bg-white dark:bg-surface-dark p-8 shadow-sm transition-all hover:shadow-md border border-border-light dark:border-border-dark">
+<div class="mb-6 inline-flex size-14 items-center justify-center rounded-xl bg-primary/10 text-primary dark:bg-primary/20">
+<span class="material-symbols-outlined text-3xl">ink_pen</span>
+</div>
+<h3 class="mb-3 text-xl font-bold text-slate-900 dark:text-white">2. Sign</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Securely sign your cheques with advanced encryption and biometric authentication for ultimate safety.
+                            </p>
+<div class="absolute -bottom-2 -right-2 size-24 rounded-full bg-primary/5 dark:bg-primary/10 transition-transform duration-300 group-hover:scale-150"></div>
+</div>
+<!-- Step 3 -->
+<div class="group relative overflow-hidden rounded-2xl bg-white dark:bg-surface-dark p-8 shadow-sm transition-all hover:shadow-md border border-border-light dark:border-border-dark">
+<div class="mb-6 inline-flex size-14 items-center justify-center rounded-xl bg-primary/10 text-primary dark:bg-primary/20">
+<span class="material-symbols-outlined text-3xl">send</span>
+</div>
+<h3 class="mb-3 text-xl font-bold text-slate-900 dark:text-white">3. Send</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Send payments to anyone, anywhere, instantly via email or SMS. Track receipt and deposit in real-time.
+                            </p>
+<div class="absolute -bottom-2 -right-2 size-24 rounded-full bg-primary/5 dark:bg-primary/10 transition-transform duration-300 group-hover:scale-150"></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="border-t border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark py-12">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col items-center justify-between gap-8 md:flex-row">
+<div class="flex items-center gap-2">
+<div class="flex size-6 items-center justify-center rounded bg-primary/20 text-primary dark:text-primary">
+<span class="material-symbols-outlined text-sm">account_balance_wallet</span>
+</div>
+<span class="text-lg font-bold text-slate-900 dark:text-white">FintechPay</span>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-sm text-slate-600 hover:text-primary dark:text-slate-400 dark:hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-sm text-slate-600 hover:text-primary dark:text-slate-400 dark:hover:text-primary" href="#">Terms of Service</a>
+<a class="text-sm text-slate-600 hover:text-primary dark:text-slate-400 dark:hover:text-primary" href="#">Contact Us</a>
+</div>
+<div class="flex gap-4">
+<a class="text-slate-400 transition-colors hover:text-primary" href="#">
+<span class="material-symbols-outlined">captive_portal</span>
+</a>
+<a class="text-slate-400 transition-colors hover:text-primary" href="#">
+<span class="material-symbols-outlined">business_center</span>
+</a>
+<a class="text-slate-400 transition-colors hover:text-primary" href="#">
+<span class="material-symbols-outlined">thumb_up</span>
+</a>
+</div>
+</div>
+<div class="mt-8 text-center text-sm text-slate-500 dark:text-slate-600">
+                    © 2023 FintechPay. All rights reserved.
                 </div>
-            </div>
-            <div class="project-card">
-                <h3>Personal Portfolio Website (HTML, CSS, JS)</h3>
-                <p>Built a responsive website to showcase projects and skills, with security features like input validation to prevent XSS.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">HTML5</span>
-                    <span class="tech-tag">CSS3</span>
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">Bootstrap</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <h3>Cybersecurity Labs – TryHackMe & Hack The Box</h3>
-                <p>Completed Buffer Overflow room: Exploited vulnerabilities, performed privilege escalation on Linux/Windows. Documented in pentest reports.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">TryHackMe</span>
-                    <span class="tech-tag">Hack The Box</span>
-                    <span class="tech-tag">Buffer Overflow</span>
-                    <span class="tech-tag">Privilege Escalation</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Add missing sections if needed, e.g., Certifications, Activities, Contact -->
-    <section id="certifications">
-        <h2>Certifications</h2>
-        <div class="cert-card">
-            <!-- Add your certifications here -->
-            <p>No certifications listed yet. Stay tuned!</p>
-        </div>
-    </section>
-
-    <section id="activities">
-        <h2>Activities</h2>
-        <div class="activity-card">
-            <!-- Add your activities here -->
-            <p>Active member of university cybersecurity club. Participated in ethical hacking workshops.</p>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Ahmed Ayman Ahmed El-Laithy. All rights reserved.</p>
-    </footer>
-
-    <script>
-        function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
-</body>
-</html>
+</div>
+</footer>
+</div>
+</body></html>

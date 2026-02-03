@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FintechPay Secure Login</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#11d4b4",
+              "primary-hover": "#0fbfa2",
+              "background-light": "#f6f8f8",
+              "background-dark": "#10221f",
+              "card-dark": "#162e2a",
+              "text-dark": "#0d1b19",
+              "text-muted": "#4c9a8d",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.5rem", 
+              "lg": "1rem", 
+              "xl": "1.5rem", 
+              "full": "9999px"
+            },
+            boxShadow: {
+              'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+              'glow': '0 0 15px rgba(17, 212, 180, 0.15)'
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased min-h-screen flex flex-col relative overflow-x-hidden text-text-dark dark:text-white">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-background-light/80 dark:bg-background-dark/90 backdrop-blur-sm z-10"></div>
+<div class="h-full w-full bg-cover bg-center" data-alt="Abstract blurred blue and teal fintech digital waves background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD3Yu5sRGqF8Khu1umZLtsTlKnuvbfOFgqoQvJnmUV7seZdcnY5ZSL6tBLJCqv5W6DcfOb0Dn_H8a8X6MxW7vjdOO3vm5vr-U7IXDdJb8V6RfIbvfUCSrrQoNj7bZgxOPMzjITKbrw-EioDcItrQUY_1wDhUbQ1J3Q39lbzDh0QSRtZ7zCYGLlpfB0O55hjuPeaULXQidMhNYW5Wy0gbHOVOiTX0Ys58QX28S6bckKFW2WDxTfNO1CkjGfmRaNC1xJcrgTqrhV0CZU");'>
+</div>
+</div>
+<!-- Main Layout -->
+<main class="relative z-20 flex-grow flex items-center justify-center p-4 sm:p-6 lg:p-8">
+<!-- Login Card -->
+<div class="w-full max-w-[480px] bg-white dark:bg-card-dark rounded-xl shadow-2xl dark:shadow-glow overflow-hidden transform transition-all">
+<!-- Card Header / Brand -->
+<div class="px-8 pt-10 pb-6 flex flex-col items-center text-center">
+<div class="flex items-center gap-3 mb-6">
+<div class="size-10 text-primary">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-text-dark dark:text-white text-2xl font-bold tracking-tight">FintechPay</h2>
+</div>
+<h1 class="text-3xl font-bold text-text-dark dark:text-white mb-2 tracking-tight">Welcome Back</h1>
+<p class="text-text-muted dark:text-gray-400 text-base font-medium">Securely access your electronic cheque system</p>
+</div>
+<!-- Login Form -->
+<form class="px-8 pb-10 flex flex-col gap-6">
+<!-- Email Field -->
+<div class="flex flex-col gap-2">
+<label class="text-text-dark dark:text-gray-200 text-sm font-semibold" for="email">Email Address</label>
+<div class="flex w-full items-stretch rounded-xl group focus-within:ring-2 focus-within:ring-primary/50 transition-all">
+<input class="form-input flex-1 w-full min-w-0 resize-none overflow-hidden rounded-l-xl text-text-dark dark:text-white dark:bg-background-dark focus:outline-0 focus:ring-0 border border-r-0 border-[#cfe7e3] dark:border-gray-600 bg-background-light focus:border-primary h-12 px-4 text-base placeholder:text-text-muted dark:placeholder:text-gray-500" id="email" placeholder="name@company.com" type="email"/>
+<div class="flex items-center justify-center px-4 bg-background-light dark:bg-background-dark border border-l-0 border-[#cfe7e3] dark:border-gray-600 rounded-r-xl text-text-muted dark:text-gray-400 group-focus-within:border-primary">
+<span class="material-symbols-outlined text-2xl">mail</span>
+</div>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<label class="text-text-dark dark:text-gray-200 text-sm font-semibold" for="password">Password</label>
+<a class="text-sm font-medium text-primary hover:text-primary-hover transition-colors" href="forgot-password.html">Forgot Password?</a>
+</div>
+<div class="flex w-full items-stretch rounded-xl group focus-within:ring-2 focus-within:ring-primary/50 transition-all">
+<input class="form-input flex-1 w-full min-w-0 resize-none overflow-hidden rounded-l-xl text-text-dark dark:text-white dark:bg-background-dark focus:outline-0 focus:ring-0 border border-r-0 border-[#cfe7e3] dark:border-gray-600 bg-background-light focus:border-primary h-12 px-4 text-base placeholder:text-text-muted dark:placeholder:text-gray-500" id="password" placeholder="Enter your password" type="password"/>
+<div class="flex items-center justify-center px-4 bg-background-light dark:bg-background-dark border border-l-0 border-[#cfe7e3] dark:border-gray-600 rounded-r-xl text-text-muted dark:text-gray-400 group-focus-within:border-primary">
+<span class="material-symbols-outlined text-2xl">lock</span>
+</div>
+</div>
+</div>
+<!-- Sign In Button -->
+<a href="pages/dashboard.html"
+   class="mt-4 flex w-full items-center justify-center rounded-xl h-12 px-4
+          bg-primary hover:bg-primary-hover text-text-dark text-base font-bold
+          transition-colors shadow-lg shadow-primary/20">
+  Sign In
+</a>
+
+<!-- Divider -->
+<div class="relative flex py-2 items-center">
+<div class="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+<span class="flex-shrink-0 mx-4 text-gray-400 text-xs uppercase font-medium">Or continue with</span>
+<div class="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+</div>
+<!-- Social Login (Visual enhancement for professional look) -->
+<div class="flex gap-4">
+<button class="flex-1 h-12 rounded-xl border border-[#cfe7e3] dark:border-gray-600 bg-background-light dark:bg-background-dark hover:bg-gray-50 dark:hover:bg-gray-800 flex items-center justify-center gap-2 transition-colors">
+<!-- Google G Icon (Simplified SVG) -->
+<svg class="w-5 h-5" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.52 12.29C23.52 11.43 23.44 10.61 23.3 9.81H12V14.43H18.45C18.17 15.89 17.32 17.13 16.05 17.97V20.91H19.92C22.18 18.82 23.52 15.78 23.52 12.29Z" fill="#4285F4"></path><path d="M12 24C15.24 24 17.96 22.92 19.92 21.11L16.05 18.17C14.97 18.89 13.6 19.32 12 19.32C8.87 19.32 6.22 17.2 5.27 14.36H1.27V17.46C3.27 21.43 7.37 24 12 24Z" fill="#34A853"></path><path d="M5.27 14.36C5.03 13.62 4.9 12.82 4.9 12C4.9 11.18 5.03 10.38 5.27 9.64V6.54H1.27C0.46 8.16 0 9.99 0 12C0 14.01 0.46 15.84 1.27 17.46L5.27 14.36Z" fill="#FBBC05"></path><path d="M12 4.68C13.76 4.68 15.34 5.29 16.58 6.47L19.99 3.06C17.96 1.17 15.24 0 12 0C7.37 0 3.27 2.57 1.27 6.54L5.27 9.64C6.22 6.8 8.87 4.68 12 4.68Z" fill="#EA4335"></path></svg>
+<span class="text-sm font-semibold text-text-dark dark:text-white">Google</span>
+</button>
+</div>
+<!-- Sign Up Link -->
+<div class="text-center mt-2">
+<p class="text-text-muted dark:text-gray-400 text-sm">
+                        Don't have an account? 
+                        <a class="text-primary hover:text-primary-hover font-bold ml-1 transition-colors" href="register.html">Sign up</a>
+</p>
+</div>
+</form>
+</div>
+<!-- Trust Badge / Footer Note -->
+<div class="absolute bottom-6 text-center w-full">
+<p class="text-text-dark/50 dark:text-white/30 text-xs font-medium flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+                Secured by FintechPay Encryption Standard
+            </p>
+</div>
+</main>
+</body></html>

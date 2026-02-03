@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FintechPay Dashboard Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11d4b4",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#10221f",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .form-input:focus {
+            border-color: #11d4b4 !important;
+            box-shadow: 0 0 0 1px #11d4b4 !important;
+        }::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #374151;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex min-h-screen">
+<aside class="w-64 border-r border-gray-200 dark:border-gray-800 bg-background-light dark:bg-background-dark flex flex-col fixed h-full z-20">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-10">
+<div class="size-10 rounded-full bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div>
+<h1 class="text-gray-900 dark:text-white text-base font-bold leading-none">FintechPay</h1>
+<p class="text-gray-500 dark:text-gray-400 text-xs mt-1">Electronic Cheque Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a href="dashboard.html"
+   class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg">
+  <span class="material-symbols-outlined">dashboard</span>
+  Dashboard
+</a>
+
+<a href="create-cheque.html"
+   class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+  <span class="material-symbols-outlined">add_box</span>
+  Create Cheque
+</a>
+
+<a href="sent-cheques.html"
+   class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+  <span class="material-symbols-outlined">send</span>
+  Sent Cheques
+</a>
+
+<a href="received-cheques.html"
+   class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+  <span class="material-symbols-outlined">inbox</span>
+  Received Cheques
+</a>
+
+<a href="reports.html"
+   class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+  <span class="material-symbols-outlined">analytics</span>
+  Reports
+</a>
+
+<div class="mt-auto pt-10 border-t border-gray-100 dark:border-gray-800 mt-6">
+<a href="settings.html"
+   class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+  <span class="material-symbols-outlined">settings</span>
+  Settings
+</a>
+</div>
+</nav>
+</div>
+</aside>
+<main class="flex-1 ml-64 p-8 flex flex-col">
+<header class="flex justify-between items-center mb-8">
+<div class="relative w-96">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-400">search</span>
+</div>
+<input class="form-input w-full pl-10 pr-4 py-2.5 rounded-xl border-none bg-white dark:bg-gray-800 shadow-sm text-sm focus:ring-2 focus:ring-primary" placeholder="Search cheques, transactions, or contacts..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-background-light dark:border-background-dark"></span>
+</button>
+<div class="h-8 w-px bg-gray-200 dark:bg-gray-700"></div>
+<div class="flex items-center gap-3 cursor-pointer hover:bg-white dark:hover:bg-gray-800 p-1.5 pr-3 rounded-full transition-colors">
+<img alt="User" class="size-9 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAluRteadGQZQ6snrXxZav9dNPgOxapxuYhkzvWImzYKD1tCAflGWLqV0BcMJqLKuPL0A8n0bv0HZgkwn60r_ifJwa3ii_6fd4vKy-zEzy1xm42woTiEGB078INuMz3PQlZCoYovKsOzw2c85iSmwdItUGx3O3KGb9unEQ-OwaTJtWE6tQ2Y3_Yd_fVYSDcSUhPEICxo5bQ5EmSLtogU4cRoRH1nLcRZvfhNKlFRZreTX1oiNEqrI6O1f7NgTQA9nmsV8vnGMoU6zI"/>
+<div class="hidden md:block">
+<p class="text-sm font-bold text-gray-900 dark:text-white leading-none">Alex Morgan</p>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Finance Manager</p>
+</div>
+<span class="material-symbols-outlined text-gray-400 text-sm">expand_more</span>
+</div>
+</div>
+</header>
+<div class="space-y-6">
+<div class="relative w-full h-40 rounded-xl overflow-hidden shadow-lg group">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Abstract teal and blue fintech digital background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdKhN90fKu7H12CaM6t-YNLxPV3wt8xm3e3IWWWuf7EMr0yKj-NatZd6ENRm-OqiMVdzJUl5d65xZ-ccmWt6HJ-HOaWuaTSZnbMkmiBWy6TmDSmhf40XlJiqjWhBHvV9cI0G9oP_TWmQd6nSJIZi10ydoZTpwSEaHR3jzda_Zq5x9jd7VLJ4fOUOyAM5yfuqWIg-SSXh0rnR1nGMsLxWNTJ80hTdD1Rh2eKOBmvUM2jCTAGyUhPSjn0A4iofUXRaefkzDCV-71lhU');"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
+<div class="absolute inset-0 flex flex-col justify-center px-8">
+<h2 class="text-white text-3xl font-black tracking-tight mb-2">Welcome back, Alex!</h2>
+<p class="text-white/80 text-sm max-w-lg">You have <span class="text-primary font-bold">4 pending cheques</span> waiting for approval today. Your financial overview is up to date.</p>
+<div class="mt-4 flex gap-3">
+<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-xs font-bold shadow-lg shadow-primary/20 transition-all flex items-center gap-2 w-fit">
+<span class="material-symbols-outlined text-sm">add</span> Issue New Cheque
+                        </button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary/30 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-semibold uppercase tracking-wider">Total Balance</p>
+<h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">$124,500.00</h3>
+</div>
+<div class="p-2 bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 rounded-lg">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+</div>
+<div class="flex items-center text-xs">
+<span class="text-green-500 font-bold flex items-center gap-0.5 mr-2">
+<span class="material-symbols-outlined text-sm">trending_up</span> +2.4%
+                        </span>
+<span class="text-gray-400">vs last month</span>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary/30 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-semibold uppercase tracking-wider">Pending Sent</p>
+<h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">$12,850.00</h3>
+</div>
+<div class="p-2 bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 rounded-lg">
+<span class="material-symbols-outlined">pending_actions</span>
+</div>
+</div>
+<div class="flex items-center text-xs">
+<span class="text-gray-500 font-medium mr-2">4 Cheques processing</span>
+<div class="h-1.5 w-16 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+<div class="h-full bg-orange-500 w-2/3 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary/30 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-semibold uppercase tracking-wider">Total Received</p>
+<h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">$45,200.00</h3>
+</div>
+<div class="p-2 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-lg">
+<span class="material-symbols-outlined">input</span>
+</div>
+</div>
+<div class="flex items-center text-xs">
+<span class="text-green-500 font-bold flex items-center gap-0.5 mr-2">
+<span class="material-symbols-outlined text-sm">trending_up</span> +12%
+                        </span>
+<span class="text-gray-400">vs last month</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-3 bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Cheque Activity</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400">Inflow vs Outflow over the last 6 months</p>
+</div>
+<select class="form-select bg-gray-50 dark:bg-gray-800 border-none text-xs font-medium text-gray-600 dark:text-gray-300 rounded-lg py-1.5 px-3 focus:ring-0 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+<option>Last 6 Months</option>
+<option>Last Year</option>
+<option>YTD</option>
+</select>
+</div>
+<div class="h-64 w-full flex items-end justify-between gap-2 px-2">
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full flex gap-1 h-40 items-end justify-center">
+<div class="w-3 bg-primary/30 rounded-t-sm h-[40%] group-hover:bg-primary/50 transition-all"></div> 
+<div class="w-3 bg-blue-500/30 rounded-t-sm h-[60%] group-hover:bg-blue-500/50 transition-all"></div> 
+</div>
+<span class="text-[10px] text-gray-400 font-medium">Jan</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full flex gap-1 h-40 items-end justify-center">
+<div class="w-3 bg-primary/30 rounded-t-sm h-[55%] group-hover:bg-primary/50 transition-all"></div>
+<div class="w-3 bg-blue-500/30 rounded-t-sm h-[45%] group-hover:bg-blue-500/50 transition-all"></div>
+</div>
+<span class="text-[10px] text-gray-400 font-medium">Feb</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full flex gap-1 h-40 items-end justify-center">
+<div class="w-3 bg-primary/30 rounded-t-sm h-[70%] group-hover:bg-primary/50 transition-all"></div>
+<div class="w-3 bg-blue-500/30 rounded-t-sm h-[30%] group-hover:bg-blue-500/50 transition-all"></div>
+</div>
+<span class="text-[10px] text-gray-400 font-medium">Mar</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full flex gap-1 h-40 items-end justify-center">
+<div class="w-3 bg-primary/30 rounded-t-sm h-[40%] group-hover:bg-primary/50 transition-all"></div>
+<div class="w-3 bg-blue-500/30 rounded-t-sm h-[80%] group-hover:bg-blue-500/50 transition-all"></div>
+</div>
+<span class="text-[10px] text-gray-400 font-medium">Apr</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full flex gap-1 h-40 items-end justify-center">
+<div class="w-3 bg-primary/30 rounded-t-sm h-[60%] group-hover:bg-primary/50 transition-all"></div>
+<div class="w-3 bg-blue-500/30 rounded-t-sm h-[65%] group-hover:bg-blue-500/50 transition-all"></div>
+</div>
+<span class="text-[10px] text-gray-400 font-medium">May</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full flex gap-1 h-40 items-end justify-center">
+<div class="w-3 bg-primary rounded-t-sm h-[85%] shadow-[0_0_10px_rgba(17,212,180,0.3)]"></div>
+<div class="w-3 bg-blue-500 rounded-t-sm h-[50%]"></div>
+</div>
+<span class="text-[10px] text-gray-900 dark:text-white font-bold">Jun</span>
+</div>
+</div>
+<div class="flex justify-center gap-6 mt-4">
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-primary"></span>
+<span class="text-xs text-gray-500">Sent</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-blue-500"></span>
+<span class="text-xs text-gray-500">Received</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
+<div class="p-6 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Recent Transactions</h3>
+<a class="text-primary text-sm font-semibold hover:text-primary/80 transition-colors" href="#">View All</a>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-gray-50/50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-800 text-xs uppercase text-gray-500 font-semibold tracking-wider">
+<th class="px-6 py-4">Cheque ID</th>
+<th class="px-6 py-4">Beneficiary / Sender</th>
+<th class="px-6 py-4">Date</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Amount</th>
+<th class="px-6 py-4"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-100 dark:divide-gray-800 text-sm">
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+<td class="px-6 py-4 font-mono text-gray-500 text-xs">#CHQ-9821</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-xs">TS</div>
+<div>
+<p class="font-semibold text-gray-900 dark:text-white">Tech Solutions Inc.</p>
+<p class="text-xs text-gray-500">Sent</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-300">Oct 24, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400">
+                                        Processing
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right font-bold text-gray-900 dark:text-white">$2,450.00</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+<td class="px-6 py-4 font-mono text-gray-500 text-xs">#CHQ-9820</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">JD</div>
+<div>
+<p class="font-semibold text-gray-900 dark:text-white">John Doe</p>
+<p class="text-xs text-gray-500">Received</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-300">Oct 23, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                        Cleared
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right font-bold text-green-600">+$850.00</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+<td class="px-6 py-4 font-mono text-gray-500 text-xs">#CHQ-9819</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-bold text-xs">AW</div>
+<div>
+<p class="font-semibold text-gray-900 dark:text-white">Amazon Web Svcs</p>
+<p class="text-xs text-gray-500">Sent</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-300">Oct 22, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                        Cleared
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right font-bold text-gray-900 dark:text-white">$149.99</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

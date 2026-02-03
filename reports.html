@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FintechPay Financial Reports</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11d4b4",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#10221f",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .form-input:focus {
+            border-color: #11d4b4 !important;
+            box-shadow: 0 0 0 1px #11d4b4 !important;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #374151;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex min-h-screen">
+<aside class="w-64 border-r border-gray-200 dark:border-gray-800 bg-background-light dark:bg-background-dark flex flex-col fixed h-full z-20">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-10">
+<div class="size-10 rounded-full bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div>
+<h1 class="text-gray-900 dark:text-white text-base font-bold leading-none">FintechPay</h1>
+<p class="text-gray-500 dark:text-gray-400 text-xs mt-1">Electronic Cheque Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a href="dashboard.html" class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+  <span class="material-symbols-outlined">dashboard</span>
+  Dashboard
+</a>
+
+<a href="create-cheque.html" class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+  <span class="material-symbols-outlined">add_box</span>
+  Create Cheque
+</a>
+
+<a href="sent-cheques.html" class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+  <span class="material-symbols-outlined">send</span>
+  Sent Cheques
+</a>
+
+<a href="received-cheques.html" class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+  <span class="material-symbols-outlined">inbox</span>
+  Received Cheques
+</a>
+
+<a href="reports.html" class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg">
+  <span class="material-symbols-outlined">analytics</span>
+  Reports
+</a>
+<div class="mt-auto pt-10 border-t border-gray-100 dark:border-gray-800 mt-6">
+<a href="settings.html" class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg mt-4">
+  <span class="material-symbols-outlined">settings</span>
+  Settings
+</a>
+</div>
+</nav>
+</div>
+</aside>
+<main class="flex-1 ml-64 p-8 flex flex-col">
+<header class="flex justify-between items-center mb-8">
+<div class="relative w-96">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-400">search</span>
+</div>
+<input class="form-input w-full pl-10 pr-4 py-2.5 rounded-xl border-none bg-white dark:bg-gray-800 shadow-sm text-sm focus:ring-2 focus:ring-primary" placeholder="Search reports, metrics, or history..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-background-light dark:border-background-dark"></span>
+</button>
+<div class="h-8 w-px bg-gray-200 dark:bg-gray-700"></div>
+<div class="flex items-center gap-3 cursor-pointer hover:bg-white dark:hover:bg-gray-800 p-1.5 pr-3 rounded-full transition-colors">
+<img alt="User" class="size-9 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAluRteadGQZQ6snrXxZav9dNPgOxapxuYhkzvWImzYKD1tCAflGWLqV0BcMJqLKuPL0A8n0bv0HZgkwn60r_ifJwa3ii_6fd4vKy-zEzy1xm42woTiEGB078INuMz3PQlZCoYovKsOzw2c85iSmwdItUGx3O3KGb9unEQ-OwaTJtWE6tQ2Y3_Yd_fVYSDcSUhPEICxo5bQ5EmSLtogU4cRoRH1nLcRZvfhNKlFRZreTX1oiNEqrI6O1f7NgTQA9nmsV8vnGMoU6zI"/>
+<div class="hidden md:block">
+<p class="text-sm font-bold text-gray-900 dark:text-white leading-none">Alex Morgan</p>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Finance Manager</p>
+</div>
+<span class="material-symbols-outlined text-gray-400 text-sm">expand_more</span>
+</div>
+</div>
+</header>
+<div class="space-y-6">
+<div class="relative w-full h-40 rounded-xl overflow-hidden shadow-lg group">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Abstract teal and blue fintech digital background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdKhN90fKu7H12CaM6t-YNLxPV3wt8xm3e3IWWWuf7EMr0yKj-NatZd6ENRm-OqiMVdzJUl5d65xZ-ccmWt6HJ-HOaWuaTSZnbMkmiBWy6TmDSmhf40XlJiqjWhBHvV9cI0G9oP_TWmQd6nSJIZi10ydoZTpwSEaHR3jzda_Zq5x9jd7VLJ4fOUOyAM5yfuqWIg-SSXh0rnR1nGMsLxWNTJ80hTdD1Rh2eKOBmvUM2jCTAGyUhPSjn0A4iofUXRaefkzDCV-71lhU');"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+<div class="absolute inset-0 flex flex-col justify-center px-8">
+<h2 class="text-white text-3xl font-black tracking-tight mb-2">Financial Reports &amp; Analytics</h2>
+<p class="text-white/80 text-sm max-w-xl">Deep dive into your transaction history, volume trends, and approval performance metrics.</p>
+<div class="mt-4 flex gap-3">
+<button class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/20 px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 w-fit">
+<span class="material-symbols-outlined text-sm">calendar_today</span> This Year
+                            </button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary/30 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-semibold uppercase tracking-wider">Monthly Volume</p>
+<h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">$3,842,000</h3>
+</div>
+<div class="p-2 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 rounded-lg">
+<span class="material-symbols-outlined">bar_chart</span>
+</div>
+</div>
+<div class="flex items-center text-xs">
+<span class="text-green-500 font-bold flex items-center gap-0.5 mr-2">
+<span class="material-symbols-outlined text-sm">trending_up</span> +8.2%
+                            </span>
+<span class="text-gray-400">from last month</span>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary/30 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-semibold uppercase tracking-wider">Approval Rate</p>
+<h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">98%</h3>
+</div>
+<div class="p-2 bg-teal-50 dark:bg-teal-900/20 text-teal-600 dark:text-teal-400 rounded-lg">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+</div>
+<div class="flex items-center text-xs">
+<span class="text-gray-500 font-medium mr-2">Consistent performance</span>
+<div class="h-1.5 w-16 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+<div class="h-full bg-teal-500 w-[98%] rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary/30 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-semibold uppercase tracking-wider">Total Fees Saved</p>
+<h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">$14,250.00</h3>
+</div>
+<div class="p-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 rounded-lg">
+<span class="material-symbols-outlined">savings</span>
+</div>
+</div>
+<div class="flex items-center text-xs">
+<span class="text-green-500 font-bold flex items-center gap-0.5 mr-2">
+<span class="material-symbols-outlined text-sm">trending_up</span> +15%
+                            </span>
+<span class="text-gray-400">efficiency optimization</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
+<div class="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
+<div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Yearly Cheque Distribution</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400">Transaction volume analysis across all accounts</p>
+</div>
+<div class="flex bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
+<button class="px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Weekly</button>
+<button class="px-3 py-1.5 text-xs font-medium rounded-md bg-white dark:bg-gray-700 shadow-sm text-gray-900 dark:text-white transition-colors">Monthly</button>
+<button class="px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Yearly</button>
+</div>
+</div>
+<div class="h-72 w-full flex items-end justify-between gap-2 md:gap-4 px-2">
+<div class="flex flex-col items-center gap-3 flex-1 group cursor-pointer">
+<div class="relative w-full flex gap-1 h-56 items-end justify-center rounded-lg bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors px-1 pb-1">
+<div class="w-2 md:w-4 bg-primary rounded-t-sm h-[30%]"></div>
+<div class="w-2 md:w-4 bg-gray-300 dark:bg-gray-600 rounded-t-sm h-[45%]"></div>
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
+                                        $450k Vol
+                                    </div>
+</div>
+<span class="text-[10px] text-gray-400 font-medium">Jan</span>
+</div>
+<div class="flex flex-col items-center gap-3 flex-1 group cursor-pointer">
+<div class="relative w-full flex gap-1 h-56 items-end justify-center rounded-lg bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors px-1 pb-1">
+<div class="w-2 md:w-4 bg-primary rounded-t-sm h-[40%]"></div>
+<div class="w-2 md:w-4 bg-gray-300 dark:bg-gray-600 rounded-t-sm h-[35%]"></div>
+</div>
+<span class="text-[10px] text-gray-400 font-medium">Feb</span>
+</div>
+<div class="flex flex-col items-center gap-3 flex-1 group cursor-pointer">
+<div class="relative w-full flex gap-1 h-56 items-end justify-center rounded-lg bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors px-1 pb-1">
+<div class="w-2 md:w-4 bg-primary rounded-t-sm h-[55%]"></div>
+<div class="w-2 md:w-4 bg-gray-300 dark:bg-gray-600 rounded-t-sm h-[60%]"></div>
+</div>
+<span class="text-[10px] text-gray-400 font-medium">Mar</span>
+</div>
+<div class="flex flex-col items-center gap-3 flex-1 group cursor-pointer">
+<div class="relative w-full flex gap-1 h-56 items-end justify-center rounded-lg bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors px-1 pb-1">
+<div class="w-2 md:w-4 bg-primary rounded-t-sm h-[65%]"></div>
+<div class="w-2 md:w-4 bg-gray-300 dark:bg-gray-600 rounded-t-sm h-[25%]"></div>
+</div>
+<span class="text-[10px] text-gray-400 font-medium">Apr</span>
+</div>
+<div class="flex flex-col items-center gap-3 flex-1 group cursor-pointer">
+<div class="relative w-full flex gap-1 h-56 items-end justify-center rounded-lg bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors px-1 pb-1">
+<div class="w-2 md:w-4 bg-primary rounded-t-sm h-[45%]"></div>
+<div class="w-2 md:w-4 bg-gray-300 dark:bg-gray-600 rounded-t-sm h-[50%]"></div>
+</div>
+<span class="text-[10px] text-gray-400 font-medium">May</span>
+</div>
+<div class="flex flex-col items-center gap-3 flex-1 group cursor-pointer">
+<div class="relative w-full flex gap-1 h-56 items-end justify-center rounded-lg bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors px-1 pb-1">
+<div class="w-2 md:w-4 bg-primary rounded-t-sm h-[75%]"></div>
+<div class="w-2 md:w-4 bg-gray-300 dark:bg-gray-600 rounded-t-sm h-[65%]"></div>
+</div>
+<span class="text-[10px] text-gray-400 font-medium">Jun</span>
+</div>
+<div class="flex flex-col items-center gap-3 flex-1 group cursor-pointer">
+<div class="relative w-full flex gap-1 h-56 items-end justify-center rounded-lg bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors px-1 pb-1">
+<div class="w-2 md:w-4 bg-primary rounded-t-sm h-[85%] shadow-[0_0_15px_rgba(17,212,180,0.4)]"></div>
+<div class="w-2 md:w-4 bg-gray-300 dark:bg-gray-600 rounded-t-sm h-[40%]"></div>
+</div>
+<span class="text-[10px] text-gray-900 dark:text-white font-bold">Jul</span>
+</div>
+<div class="flex flex-col items-center gap-3 flex-1 group cursor-pointer">
+<div class="relative w-full flex gap-1 h-56 items-end justify-center rounded-lg bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors px-1 pb-1">
+<div class="w-2 md:w-4 bg-primary rounded-t-sm h-[60%]"></div>
+<div class="w-2 md:w-4 bg-gray-300 dark:bg-gray-600 rounded-t-sm h-[30%]"></div>
+</div>
+<span class="text-[10px] text-gray-400 font-medium">Aug</span>
+</div>
+</div>
+<div class="flex justify-center gap-6 mt-6 pt-4 border-t border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-2">
+<span class="size-3 rounded-sm bg-primary"></span>
+<span class="text-xs text-gray-500">Electronic</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="size-3 rounded-sm bg-gray-300 dark:bg-gray-600"></span>
+<span class="text-xs text-gray-500">Physical Print</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
+<div class="p-6 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Detailed Report Log</h3>
+<span class="px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 text-xs font-medium">Last 30 days</span>
+</div>
+<button class="text-primary text-sm font-semibold hover:text-primary/80 transition-colors flex items-center gap-1">
+                             Generate New <span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-gray-50/50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-800 text-xs uppercase text-gray-500 font-semibold tracking-wider">
+<th class="px-6 py-4">Report Name</th>
+<th class="px-6 py-4">Date Range</th>
+<th class="px-6 py-4">Generated On</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-100 dark:divide-gray-800 text-sm">
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-red-50 text-red-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">picture_as_pdf</span>
+</div>
+<div>
+<p class="font-semibold text-gray-900 dark:text-white">Q3 Financial Statement</p>
+<p class="text-xs text-gray-500">Quarterly Overview</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-300">Jul 1 - Sep 30, 2023</td>
+<td class="px-6 py-4 text-gray-500">Oct 24, 2023 at 09:15 AM</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                            Ready
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition-colors" title="Download PDF">
+<span class="material-symbols-outlined text-lg">picture_as_pdf</span>
+</button>
+<button class="p-1.5 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded transition-colors" title="Download CSV">
+<span class="material-symbols-outlined text-lg">table_view</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-green-50 text-green-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">table_view</span>
+</div>
+<div>
+<p class="font-semibold text-gray-900 dark:text-white">Monthly Transaction Log</p>
+<p class="text-xs text-gray-500">Volume Analysis</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-300">Sep 1 - Sep 30, 2023</td>
+<td class="px-6 py-4 text-gray-500">Oct 01, 2023 at 10:00 AM</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                            Ready
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition-colors" title="Download PDF">
+<span class="material-symbols-outlined text-lg">picture_as_pdf</span>
+</button>
+<button class="p-1.5 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded transition-colors" title="Download CSV">
+<span class="material-symbols-outlined text-lg">table_view</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-blue-50 text-blue-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">analytics</span>
+</div>
+<div>
+<p class="font-semibold text-gray-900 dark:text-white">Fee Analysis Report</p>
+<p class="text-xs text-gray-500">Cost Savings</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-300">Jan 1 - Jun 30, 2023</td>
+<td class="px-6 py-4 text-gray-500">Jul 05, 2023 at 02:45 PM</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-400">
+                                            Archived
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition-colors" title="Download PDF">
+<span class="material-symbols-outlined text-lg">picture_as_pdf</span>
+</button>
+<button class="p-1.5 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded transition-colors" title="Download CSV">
+<span class="material-symbols-outlined text-lg">table_view</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

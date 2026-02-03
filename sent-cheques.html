@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sent Cheques History Log</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11d4b4",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#10221f",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .form-input:focus {
+            border-color: #11d4b4 !important;
+            box-shadow: 0 0 0 1px #11d4b4 !important;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex min-h-screen">
+<aside class="w-64 border-r border-gray-200 dark:border-gray-800 bg-background-light dark:bg-background-dark flex flex-col fixed h-full z-10">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-10">
+<div class="size-10 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div>
+<h1 class="text-gray-900 dark:text-white text-base font-bold leading-none">FintechPay</h1>
+<p class="text-gray-500 dark:text-gray-400 text-xs mt-1">Electronic Cheque Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a href="dashboard.html"
+   class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+  <span class="material-symbols-outlined">dashboard</span>
+  Dashboard
+</a>
+<a href="create-cheque.html"
+   class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+  <span class="material-symbols-outlined">add_box</span>
+  Create Cheque
+</a>
+<a href="sent-cheques.html"
+   class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg">
+  <span class="material-symbols-outlined">send</span>
+  Sent Cheques
+</a>
+<a href="received-cheques.html"
+   class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+  <span class="material-symbols-outlined">inbox</span>
+  Received Cheques
+</a>
+<a href="reports.html"
+class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm font-medium">Reports</span>
+</a>
+<div class="mt-auto pt-10">
+<a href="settings.html"
+   class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+  <span class="material-symbols-outlined">settings</span>
+  Settings
+</a>
+</div>
+</nav>
+</div>
+</aside>
+<main class="flex-1 ml-64 p-8 flex flex-col items-center">
+<div class="w-full max-w-6xl">
+<div class="relative w-full h-48 rounded-xl overflow-hidden mb-8 shadow-lg">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Abstract teal and blue fintech digital background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdKhN90fKu7H12CaM6t-YNLxPV3wt8xm3e3IWWWuf7EMr0yKj-NatZd6ENRm-OqiMVdzJUl5d65xZ-ccmWt6HJ-HOaWuaTSZnbMkmiBWy6TmDSmhf40XlJiqjWhBHvV9cI0G9oP_TWmQd6nSJIZi10ydoZTpwSEaHR3jzda_Zq5x9jd7VLJ4fOUOyAM5yfuqWIg-SSXh0rnR1nGMsLxWNTJ80hTdD1Rh2eKOBmvUM2jCTAGyUhPSjn0A4iofUXRaefkzDCV-71lhU');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-8">
+<h2 class="text-white text-3xl font-black tracking-tight">Sent Cheques History</h2>
+<p class="text-white/80 text-sm mt-1">Track and manage all your issued electronic payments</p>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 overflow-hidden">
+<div class="p-6 border-b border-gray-100 dark:border-gray-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="relative max-w-sm w-full">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 material-symbols-outlined text-xl">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 text-sm" placeholder="Search by name, ID or bank..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined text-lg">filter_list</span>
+                                Filter
+                            </button>
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined text-lg">download</span>
+                                Export
+                            </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm text-gray-600 dark:text-gray-400">
+<thead class="bg-gray-50 dark:bg-gray-800 text-xs uppercase font-bold text-gray-500 dark:text-gray-400">
+<tr>
+<th class="px-6 py-4">Cheque ID</th>
+<th class="px-6 py-4">Receiver Name</th>
+<th class="px-6 py-4">Bank</th>
+<th class="px-6 py-4">Amount</th>
+<th class="px-6 py-4">Date</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white">#CHQ-8902</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">TS</div>
+                                        Tech Solutions Inc.
+                                    </div>
+</td>
+<td class="px-6 py-4">Global Trust Bank</td>
+<td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">$4,500.00</td>
+<td class="px-6 py-4">Oct 24, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">
+<span class="size-1.5 rounded-full bg-emerald-500"></span>
+                                        Cleared
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white">#CHQ-8903</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-xs">JS</div>
+                                        Jane Smith
+                                    </div>
+</td>
+<td class="px-6 py-4">Citi Standard</td>
+<td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">$1,250.00</td>
+<td class="px-6 py-4">Oct 26, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+<span class="size-1.5 rounded-full bg-amber-500"></span>
+                                        Pending
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white">#CHQ-8904</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center font-bold text-xs">JD</div>
+                                        John Doe
+                                    </div>
+</td>
+<td class="px-6 py-4">Chase Manhattan</td>
+<td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">$320.00</td>
+<td class="px-6 py-4">Oct 27, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400">
+<span class="size-1.5 rounded-full bg-rose-500"></span>
+                                        Cancelled
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white">#CHQ-8905</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-xs">AC</div>
+                                        Apex Corp
+                                    </div>
+</td>
+<td class="px-6 py-4">HSBC</td>
+<td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">€8,900.00</td>
+<td class="px-6 py-4">Oct 28, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">
+<span class="size-1.5 rounded-full bg-emerald-500"></span>
+                                        Cleared
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white">#CHQ-8906</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center font-bold text-xs">MW</div>
+                                        Michael Wright
+                                    </div>
+</td>
+<td class="px-6 py-4">Bank of America</td>
+<td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">$2,100.00</td>
+<td class="px-6 py-4">Nov 01, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+<span class="size-1.5 rounded-full bg-amber-500"></span>
+                                        Pending
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+<p class="text-sm text-gray-500 dark:text-gray-400">Showing <span class="font-semibold text-gray-900 dark:text-white">1-5</span> of <span class="font-semibold text-gray-900 dark:text-white">42</span></p>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-sm border border-gray-200 dark:border-gray-700 rounded hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 disabled:opacity-50" disabled="">Previous</button>
+<button class="px-3 py-1 text-sm border border-gray-200 dark:border-gray-700 rounded hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300">Next</button>
+</div>
+</div>
+</div>
+<div class="mt-6 flex items-center justify-center gap-2 text-gray-400 dark:text-gray-500">
+<span class="material-symbols-outlined text-base">lock</span>
+<span class="text-xs font-medium uppercase tracking-widest">History Log is end-to-end encrypted</span>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>
